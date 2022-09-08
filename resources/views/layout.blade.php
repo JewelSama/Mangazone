@@ -87,7 +87,7 @@
 						<li><a href="/" class="nav-link">{{_('Home🈴')}}</a></li>
 						<li class="nav-item"><a href="/about" class="">{{_('About')}}</a></li>
 						<li class="has-dropdown">
-							<a href="#">{{_('Manga Category')}}<i class="icon-triangle-down"></i></a>
+							<a href="#">{{_('Category')}}<i class="icon-triangle-down"></i></a>
 							<ul class="dropdown">
 								<li><a href="#">{{_('Action')}}</a></li>
 								<li><a href="#">{{_('Slice of Life')}}</a></li>
