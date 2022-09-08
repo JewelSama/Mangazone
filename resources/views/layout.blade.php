@@ -36,6 +36,7 @@
 
 	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> -->
 	<!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet"> -->
+    <link rel="shortcut icon" href="images/manLogo.png" type="image/x-icon">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -74,24 +75,20 @@
 					<div id="fh5co-logo"><a href="index.html">Mangazone.</a></div>
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
-					<ul>
+					<ul class="navbar-nav">
+						
+						<li><a href="/" class="{ request()->is('/') ? 'active' : '' }">{{_('Home🈴')}}</a></li>
+						<li class="nav-item"><a href="/about" class="active nav-link">{{_('About')}}</a></li>
 						<li class="has-dropdown">
-							<a href="product.html">Shop</a>
+							<a href="#">{{_('Manga Collection')}}</a>
 							<ul class="dropdown">
-								<li><a href="single.html">Single Shop</a></li>
-							</ul>
+								<li><a href="#">{{_('Action')}}</a></li>
+								<li><a href="#">{{_('Slice of Life')}}</a></li>
+								<li><a href="#">{{_('Ecchi')}}</a></li>
+								<li><a href="#">{{_('Supernatural')}}</a></li>
+							</ul> 
 						</li>
-						<li><a href="about.html">About</a></li>
-						<li class="has-dropdown">
-							<a href="services.html">Services</a>
-							<ul class="dropdown">
-								<li><a href="#">Web Design</a></li>
-								<li><a href="#">eCommerce</a></li>
-								<li><a href="#">Branding</a></li>
-								<li><a href="#">API</a></li>
-							</ul>
-						</li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="/contact">{{_('Contact')}}</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
