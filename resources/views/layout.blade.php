@@ -79,6 +79,7 @@
 			<div class="row">
 				<div class="col-md-3 col-xs-2">
 					<div id="fh5co-logo"><a href="/">Mangazone.</a></div>
+					
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul class="navbar-nav">
@@ -86,7 +87,7 @@
 						<li><a href="/" class="nav-link">{{_('Home🈴')}}</a></li>
 						<li class="nav-item"><a href="/about" class="">{{_('About')}}</a></li>
 						<li class="has-dropdown">
-							<a href="#">{{_('Manga Collection')}}</a>
+							<a href="#">{{_('Manga Category')}}<i class="icon-triangle-down"></i></a>
 							<ul class="dropdown">
 								<li><a href="#">{{_('Action')}}</a></li>
 								<li><a href="#">{{_('Slice of Life')}}</a></li>
@@ -95,8 +96,21 @@
 							</ul> 
 						</li>
 						<li><a href="/contact" class="nav-link">{{_('Contact')}}</a></li>
-						<li><a href="" data-toggle="modal" class="nav-link" data-target="#myModal">{{_('Login')}}</a></li>
 					</ul>
+					<!--  -->
+					<ul>
+					<li class="has-dropdown">
+							<a href="#"> Ohayo <b> Minna san</b><i class="icon-triangle-down"></i>🍡</a>
+							<ul class="dropdown">
+								<li><a href="" data-toggle="modal" class="nav-link" data-target="#myModal">{{_('Login')}}</a></li>
+								<li><a href="#">{{_('Admin')}}</a></li>
+							</ul> 
+						</li>
+						</ul>
+
+
+
+
 				</div>
 				<div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
 					<ul>
@@ -125,12 +139,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Log In To Your Account🎌</h4>
+        <h4 class="modal-title text-center"><b>Log In To Your Account🎌</b></h4>
       </div>
       <div class="modal-body">
 	  <form class="form-horizontal" role="form">
-              <h2>Login</h2>
-                
 				<div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-4">
@@ -146,22 +158,14 @@
                         <input type="password" id="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
-				  
-               
-                
-             
-				
-                <div class="form-group">
-                    <div class="col-md-2 col-sm-offset-3">
-                        <button type="submit" class="btn btn-info">Login</button>
-                    </div>
-                </div>
-            </form> <!-- /form -->
 			Don't have an account? <a href="/register">Register</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	  <button type="submit" class="btn btn-info">Login</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
+	  </form> <!-- /form -->
+
     </div>
 
   </div>
@@ -249,22 +253,7 @@
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	<script>
-		// Get the container element
-var btnContainer = document.getElementById("navbar-nav");
-
-// Get all buttons with class="btn" inside the container
-var btns = btnContainer.getElementsByClassName("nav-link");
-
-// Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-} 
-	</script>
+	
 
 	</body>
 </html>
