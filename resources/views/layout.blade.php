@@ -63,6 +63,12 @@
 	<![endif]-->
 
 	</head>
+	<style>
+		 .active{
+  background-color: #666;
+  color: white;
+} 
+	</style>
 	<body>
 		
 	<div class="fh5co-loader"></div>
@@ -72,13 +78,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-xs-2">
-					<div id="fh5co-logo"><a href="index.html">Mangazone.</a></div>
+					<div id="fh5co-logo"><a href="/">Mangazone.</a></div>
 				</div>
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul class="navbar-nav">
 						
-						<li><a href="/" class="{ request()->is('/') ? 'active' : '' }">{{_('Home🈴')}}</a></li>
-						<li class="nav-item"><a href="/about" class="active nav-link">{{_('About')}}</a></li>
+						<li><a href="/" class="nav-link">{{_('Home🈴')}}</a></li>
+						<li class="nav-item"><a href="/about" class="">{{_('About')}}</a></li>
 						<li class="has-dropdown">
 							<a href="#">{{_('Manga Collection')}}</a>
 							<ul class="dropdown">
@@ -88,7 +94,8 @@
 								<li><a href="#">{{_('Supernatural')}}</a></li>
 							</ul> 
 						</li>
-						<li><a href="/contact">{{_('Contact')}}</a></li>
+						<li><a href="/contact" class="nav-link">{{_('Contact')}}</a></li>
+						<li><a href="" data-toggle="modal" class="nav-link" data-target="#myModal">{{_('Login')}}</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-xs-4 text-right hidden-xs menu-2">
@@ -101,7 +108,7 @@
 						      </span>
 						    </div>
 						</li>
-						<li class="shopping-cart"><a href="#" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+						<li class="shopping-cart"><a href="{{route('cart')}}" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -109,19 +116,65 @@
 		</div>
 	</nav>
 
+<!-- The modal -->
+<!-- The modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Log In To Your Account🎌</h4>
+      </div>
+      <div class="modal-body">
+	  <form class="form-horizontal" role="form">
+              <h2>Login</h2>
+                
+				<div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-4">
+                        <input type="email" id="email" placeholder="Enter Email" class="form-control" autofocus>
+                       
+                    </div>
+                </div>
+				
+               
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" id="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+				  
+               
+                
+             
+				
+                <div class="form-group">
+                    <div class="col-md-2 col-sm-offset-3">
+                        <button type="submit" class="btn btn-info">Login</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+			Don't have an account? <a href="/register">Register</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
     @yield('content')
-
-
-
-
-
-
 
     <footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 			<div class="row row-pb-md">
 				<div class="col-md-4 fh5co-widget">
-					<h3>Shop.</h3>
+					<h3>Mangazone.</h3>
 					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
 				</div>
 				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
@@ -158,15 +211,15 @@
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://blog.gessato.com/" target="_blank">Gessato</a> &amp; <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+						<small class="block">&copy; <script>document.write(new Date().getFullYear())</script> Jewel~Sama. All Rights Reserved.</small> 
+						<small class="block">Designed by <a href="http://github.com/jewelSama" target="_blank">Jewel~Sama</a></small>
 					</p>
 					<p>
 						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-github"></i></a></li>
 							<li><a href="#"><i class="icon-twitter"></i></a></li>
 							<li><a href="#"><i class="icon-facebook"></i></a></li>
 							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
 						</ul>
 					</p>
 				</div>
@@ -196,6 +249,22 @@
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script>
+		// Get the container element
+var btnContainer = document.getElementById("navbar-nav");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.getElementsByClassName("nav-link");
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+} 
+	</script>
 
 	</body>
 </html>

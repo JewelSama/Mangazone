@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<div class="container ">
+<div class="container mt-2">
             <form class="form-horizontal" role="form">
               <h2>Register</h2>
                 <div class="form-group">

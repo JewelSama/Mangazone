@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +27,4 @@ Route::get('/contact', function () {
 });
 Route::get('/register',[RegisterController::class, 'show'])->name('register');
 Route::get('/login',[LoginController::class, 'show'])->name('login');
+Route::get('/cart',[CartController::class, 'show'])->name('cart');
