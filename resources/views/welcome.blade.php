@@ -3,57 +3,59 @@
 	<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
-		   	<li style="background-image: url(images/img_bg_1.jpg);">
+		   	
+		   	<li style="background-image: url(images/36626.jpg);">
+		   		<div class="container">
+		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
+		   				<div class="slider-text-inner">
+		   					<div class="desc">
+		   						<span class="price">₦1750</span>
+		   						<h2>進撃の巨人 Shingeki no Kyojin</h2>
+		   						<p>In the present, a boy named Eren Yeager and his childhood friends Mikasa Ackerman and Armin Arlert dream about seeing the world outside the Walls some day; but their peace is abruptly interrupted when an unusual 60-meter tall Colossus Titan and an Armored Titan breach the outermost Wall, and Eren sees his mother dying in the resulting devastation. Eren vows revenge against the Titans and later enlists in the military branch Survey Corps, accompanied by both Mikasa and Armin. </p>
+			   					<p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
+		   					</div>
+		   				</div>
+		   			</div>
+		   		</div>
+		   	</li>
+			   <li style="background-image: url(images/1269591.png);">
 		   		<div class="overlay-gradient"></div>
 		   		<div class="container">
 		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
 		   				<div class="slider-text-inner">
 		   					<div class="desc">
-		   						<span class="price">$800</span>
-		   						<h2>Alato Cabinet</h2>
-		   						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+		   						<span class="price">₦1530</span>
+		   						<h2>Dragon Ball Super</h2>
+		   						<p>The story follows the adventures of Son Goku, from childhood to adulthood, as he trains in martial arts and explores the world in search of the Dragon Balls, seven magical orbs which summon a wish-granting dragon when gathered.</p>
+			   					
 			   					<p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
 		   					</div>
 		   				</div>
 		   			</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(images/img_bg_2.jpg);">
+		   	<li style="background-image: url(images/8006.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
 		   				<div class="slider-text-inner">
 		   					<div class="desc">
-		   						<span class="price">$530</span>
-		   						<h2>The Haluz Rocking Chair</h2>
-		   						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+		   						<span class="price">₦2000</span>
+		   						<h2>Naruto</h2>
+		   						<p>Naruto (ナルト) is a Japanese manga and anime series created by Masashi Kishimoto. It follows an orphaned ninja who dreams to become "Hokage". The Hokage is the strongest ninja and the leader for the village, called Konoha (meaning "leaf" in Japanese). As the series progresses, Naruto and his friends begin to solve the ancient history of the ninja world</p>
 			   					<p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
 		   					</div>
 		   				</div>
 		   			</div>
 		   		</div>
 		   	</li>
-		   	<li style="background-image: url(images/img_bg_3.jpg);">
+		   	<li style="background-image: url(images/1097651.jpg);">
 		   		<div class="container">
 		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
 		   				<div class="slider-text-inner">
 		   					<div class="desc">
-		   						<span class="price">$750</span>
-		   						<h2>Alato Cabinet</h2>
-		   						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-			   					<p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
-		   					</div>
-		   				</div>
-		   			</div>
-		   		</div>
-		   	</li>
-		   	<li style="background-image: url(images/img_bg_4.jpg);">
-		   		<div class="container">
-		   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 js-fullheight slider-text">
-		   				<div class="slider-text-inner">
-		   					<div class="desc">
-		   						<span class="price">$540</span>
-		   						<h2>The WW Chair</h2>
-		   						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+		   						<span class="price">₦4500</span>
+		   						<h2>Demon Slayer: Kimetsu no Yaiba (鬼滅の刃)</h2>
+		   						<p>is a Japanese manga series written and illustrated by Koyoharu Gotouge. It follows teenage Tanjiro Kamado, who strives to become a demon slayer after his family was slaughtered and his younger sister, Nezuko, turned into a demon</p>
 			   					<p><a href="single.html" class="btn btn-primary btn-outline btn-lg">Purchase Now</a></p>
 		   					</div>
 		   				</div>
@@ -72,7 +74,7 @@
 						<span class="icon">
 							<i class="icon-credit-card"></i>
 						</span>
-						<h3>Credit Card</h3>
+						<h3>Debit Card</h3>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
 						<p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p>
 					</div>
@@ -112,7 +114,7 @@
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-1.jpg);">
+						<div class="product-grid" style="background-image:url(images/ds.jpg);">
 							<div class="inner">
 								<p>
 									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -128,7 +130,7 @@
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-2.jpg);">
+						<div class="product-grid" style="background-image:url(images/dbs.jpg);">
 							<span class="sale">Sale</span>
 							<div class="inner">
 								<p>
@@ -145,7 +147,7 @@
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-3.jpg);">
+						<div class="product-grid" style="background-image:url(images/bc.jpg);">
 							<div class="inner">
 								<p>
 									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -163,7 +165,7 @@
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-4.jpg);">
+						<div class="product-grid" style="background-image:url(images/aot.jpg);">
 							<div class="inner">
 								<p>
 									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -179,7 +181,7 @@
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-5.jpg);">
+						<div class="product-grid" style="background-image:url(images/ds.jpg);">
 							<div class="inner">
 								<p>
 									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
@@ -195,7 +197,7 @@
 				</div>
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/product-6.jpg);">
+						<div class="product-grid" style="background-image:url(images/bleach.jpg);">
 							<div class="inner">
 								<p>
 									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
