@@ -84,7 +84,7 @@
 				<div class="col-md-6 col-xs-6 text-center menu-1">
 					<ul class="navbar-nav">
 						
-						<li><a href="/" class="nav-link">{{_('Home🈴')}}</a></li>
+						<li><a href="/" class="nav-link">{{_('Home')}}</a></li>
 						<li class="nav-item"><a href="/about" class="">{{_('About')}}</a></li>
 						<li class="has-dropdown">
 							<a href="#">{{_('Category')}}<i class="icon-triangle-down"></i></a>
