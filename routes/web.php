@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome')->name('home');
+    return view('welcome');
 });
 Route::get('/about', function () {
     return view('about');
@@ -30,6 +31,8 @@ Route::get('/register',[RegisterController::class, 'show'])->name('register')->m
 Route::post('/register',[RegisterController::class, 'create'])->middleware('guest');
 
 Route::get('/login',[LoginController::class, 'show'])->name('login')->middleware('guest');
-Route::post('/login',[LoginController::class, 'show'])->middleware('guest');
+Route::post('/login',[LoginController::class, 'create'])->middleware('guest');
+
+Route::post('/logout', [LogoutController::class, 'create'])->name('logout');
 
 Route::get('/cart',[CartController::class, 'show'])->name('cart');

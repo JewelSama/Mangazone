@@ -112,7 +112,10 @@
 								@endguest
 								<li><a href="#">{{_('Admin')}}</a></li>
 								@auth()
-									<li><a href="" class="nav-link" >{{_('Logout')}}</a></li>
+								<form action="{{route('logout')}}" method="post" class="inline p-3">
+									@csrf
+									<li><button type="submit" class="btn-jewel" class="nav-link" >{{_('Logout')}}</button></li>
+									</form>
 								@endauth
 								
 							</ul> 
@@ -139,6 +142,11 @@
 			</div>
 			
 		</div>
+		@if(session('status'))
+		<div class="session-alt fixed-top  mx-auto text-center text-white" style="margin: auto;padding: 3px">
+            {{session('status')}}
+        </div>
+		@endif
 	</nav>
 
 <!-- The modal -->
@@ -153,11 +161,12 @@
         <h4 class="modal-title text-center"><b>Log In To Your Account🎌</b></h4>
       </div>
       <div class="modal-body">
-	  <form class="form-horizontal" method="POST" action="" role="form">
+	  <form class="form-horizontal" method="POST" action="{{route('login')}}" role="form">
+		@csrf
 				<div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-4">
-                        <input type="email" id="email" placeholder="Enter Email" class="form-control" autofocus>
+                        <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control" autofocus>
                        
                     </div>
                 </div>
@@ -166,23 +175,21 @@
                 <div class="form-group">
                     <label for="password" class="col-sm-3 control-label">Password</label>
                     <div class="col-sm-4">
-                        <input type="password" id="password" placeholder="Password" class="form-control">
+                        <input type="password" id="password" name="password" placeholder="Password" class="form-control">
                     </div>
                 </div>
 			Don't have an account? <a href="/register">Register</a>
       </div>
       <div class="modal-footer">
 	  <button type="submit" class="btn btn-info">Login</button>
+	</form> <!-- /form -->
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
-	  </form> <!-- /form -->
 
     </div>
 
   </div>
 </div>
-
-
     @yield('content')
 
     <footer id="fh5co-footer" role="contentinfo">
@@ -264,6 +271,7 @@
 	<script src="js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	
 	
 
 	</body>

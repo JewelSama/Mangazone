@@ -27,6 +27,6 @@ class RegisterController extends Controller
         //Log in user
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('status', 'ACCOUNT CREATED!');
     }
 }

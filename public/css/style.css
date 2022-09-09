@@ -294,6 +294,15 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-hero .btn.btn-primary {
   padding: 14px 30px !important;
 }
+.btn-jewel{
+  background: transparent;
+  border: none;
+}
+.session-alt{
+  width: 200px;
+  background-color: #d1c286;
+  color: #fff;
+}
 #fh5co-hero .flexslider {
   border: none;
   z-index: 1;

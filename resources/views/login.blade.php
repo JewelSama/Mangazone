@@ -1,8 +1,13 @@
 @extends('layout')
 @section('content')
 <div class="container ">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" method="Post" action="{{route('login')}}" role="form">
               <h2>Login</h2>
+              <!-- @if(session('status')){
+                <div>
+                    {{session('status')}}
+                </div>
+              } -->
                 
 				<div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Email</label>
