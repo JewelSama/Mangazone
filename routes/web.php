@@ -26,5 +26,6 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/register',[RegisterController::class, 'show'])->name('register');
+Route::post('/register',[RegisterController::class, 'create']);
 Route::get('/login',[LoginController::class, 'show'])->name('login');
 Route::get('/cart',[CartController::class, 'show'])->name('cart');
