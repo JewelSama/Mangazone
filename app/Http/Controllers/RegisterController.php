@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -15,7 +16,7 @@ class RegisterController extends Controller
         $this->validate($request, [
             'username'=> 'required|max:255',
             'email'=> 'required|email|max:255',
-            'password'=> 'required|confirmed',
+            'password'=> 'required|confirmed|min:6',
         ]);
 
         User::create([
@@ -27,6 +28,11 @@ class RegisterController extends Controller
         //Log in user
         auth()->attempt($request->only('email', 'password'));
 
-        return redirect()->route('home')->with('status', 'ACCOUNT CREATED!');
+        if (Auth::user()->role_type == 'administrator')
+        {
+            return redirect()->route('dashboard')->with('status', 'Welcome Admin'); 
+        } else {
+        return redirect()->route('home')->with('status', 'SIGNED IN SUCCESSFULLY');
+        }
     }
 }

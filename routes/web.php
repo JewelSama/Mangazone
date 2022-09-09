@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
@@ -20,13 +21,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/contact', function () {
     return view('contact');
 });
+// Route::group(['middleware' => 'isAdmin'], function () {
+//     
+// });
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+});
+
+
 Route::get('/register',[RegisterController::class, 'show'])->name('register')->middleware('guest');
 Route::post('/register',[RegisterController::class, 'create'])->middleware('guest');
 
