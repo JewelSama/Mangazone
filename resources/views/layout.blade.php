@@ -100,10 +100,21 @@
 					<!--  -->
 					<ul>
 					<li class="has-dropdown">
-							<a href="#"> Ohayo <b> Minna san</b><i class="icon-triangle-down"></i>🍡</a>
+							<a href="#"> Ohayo <b> @auth
+								{{auth()->user()->username}}
+							@endauth 
+							@guest 
+							Minna san 
+							@endguest</b><i class="icon-triangle-down"></i>🍡</a>
 							<ul class="dropdown">
-								<li><a href="" data-toggle="modal" class="nav-link" data-target="#myModal">{{_('Login')}}</a></li>
+								@guest()
+									<li><a href="" data-toggle="modal" class="nav-link" data-target="#myModal">{{_('Login')}}</a></li>
+								@endguest
 								<li><a href="#">{{_('Admin')}}</a></li>
+								@auth()
+									<li><a href="" class="nav-link" >{{_('Logout')}}</a></li>
+								@endauth
+								
 							</ul> 
 						</li>
 						</ul>
@@ -142,7 +153,7 @@
         <h4 class="modal-title text-center"><b>Log In To Your Account🎌</b></h4>
       </div>
       <div class="modal-body">
-	  <form class="form-horizontal" role="form">
+	  <form class="form-horizontal" method="POST" action="" role="form">
 				<div class="form-group">
                     <label for="lastName" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-4">
