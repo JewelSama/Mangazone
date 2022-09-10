@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white  {{request()->is('dashboard') ? 'active bg-gradient-primary' : ''}}" href="/dashboard">
+          <a class="nav-link text-white  {{request()->is('dashboard') ? 'active bg-gradient-danger' : ''}}" href="/dashboard">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -57,7 +57,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{request()->is('users-table') ? 'active bg-gradient-primary' : ''}}" href="{{route('usersTable')}}">
+          <a class="nav-link text-white {{request()->is('users-table') ? 'active bg-gradient-danger' : ''}}" href="{{route('usersTable')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">people</i>
             </div>
@@ -65,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{request()->is('manga') ? 'active bg-gradient-primary' : ''}}" href="{{route('manga')}}">
+          <a class="nav-link text-white {{request()->is('manga') ? 'active bg-gradient-danger' : ''}}" href="{{route('manga')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">auto_stories</i>
             </div>
@@ -75,7 +75,7 @@
         
         
         <li class="nav-item">
-          <a class="nav-link text-white {{request()->is('payments') ? 'active bg-gradient-primary' : ''}}" href="{{route('payments')}}">
+          <a class="nav-link text-white {{request()->is('payments') ? 'active bg-gradient-danger' : ''}}" href="{{route('payments')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
