@@ -117,8 +117,8 @@
 						<div class="product-grid" style="background-image:url(images/ds.jpg);">
 							<div class="inner">
 								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
+									<a href="/cart" class="icon"><i class="icon-shopping-cart"></i></a>
+									<a href="/product" class="icon"><i class="icon-eye"></i></a>
 								</p>
 							</div>
 						</div>

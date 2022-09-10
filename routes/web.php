@@ -22,6 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/product', function(){
+    return view('single');
+});
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -34,6 +39,9 @@ Route::get('/contact', function () {
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
+    Route::get('/users-table', [DashboardController::class, 'showUsers'])->name('usersTable');
+    Route::get('/manga', [DashboardController::class, 'showManga'])->name('manga');
+    Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
 });
 
 
