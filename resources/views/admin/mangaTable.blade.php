@@ -126,9 +126,11 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Users</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Joined</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manga Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mangaka</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                      <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
@@ -141,20 +143,28 @@
                             <img src="images/manga.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                            <h6 class="mb-0 text-sm">Kimetsu no yaiba</h6>
+                            <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                        <p class="text-xs font-weight-bold mb-0">Action</p>
+                      </td>
+                      
+                      <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">Kishimoto</span>
                       </td>
                       
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                       </td>
                       
+                      <td class="align-middle">
+                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                          View
+                        </a>
+                      </td>
                       <td class="align-middle">
                         <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                           Edit
@@ -187,27 +197,84 @@
                 for a better weeb experience.
               </div>
             </div>
-            <!-- <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">Mangazone</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-                </li>
-              </ul>
-            </div> -->
+            
           </div>
         </div>
       </footer>
     </div>
   </main>
+
+  <div class="fixed-plugin">
+    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+      <i class="material-icons py-2">create</i>
+    </a>
+    <div class="card shadow-lg">
+      <div class="card-header pb-0 pt-3">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Mangazone</h5>
+          <p>Add Manga</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0">
+       
+      <form>
+  <div class="form-group ">
+    <label for="">Manga Name</label>
+    <input type="text" class="form-control" style="border: 1px solid #ccc !important;">
+    <small  class="form-text text-danger"></small>
+  </div>
+  
+  <div class="form-group mt-2">
+    <label for=""><b>Select Manga Category</b></label>
+  <select class="form-select w-50"  style="border: 0.5px solid #ccc !important;">
+  <option selected>Action</option>
+  <option value="1">Slice of life</option>
+  <option value="2">Ecchi</option>
+  <option value="3">Supernatural</option>
+</select>
+</div>
+
+<div class="mt-2 form-group">
+  <label for="formFile" class="form-label">Select manga file</label>
+  <input type="file" name="" id="">
+</div>
+
+<div class="form-group mt-2">
+    <label for="">Mangaka</label>
+    <input type="text" class="form-control" style="border: 1px solid #ccc !important;">
+    <small  class="form-text text-danger"></small>
+  </div>
+  <div class="mt-2 form-group">
+  <label for="formFile" class="form-label">Select manga cover</label>
+  <input type="file" name="" id="">
+</div>
+
+
+
+<div class="form-group mt-2">
+    <label for="">Description</label>
+    <textarea class="form-control" id="floatingTextarea2" style="border: 1px solid #ccc !important;height: 100px"></textarea>
+    <small  class="form-text text-danger"></small>
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary mt-4 mb-3">Submit</button>
+</form>
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
   
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
