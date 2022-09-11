@@ -127,13 +127,15 @@
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Users</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Role</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Joined</th>
                       <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
+                    @unless($users->isEmpty())
+                    @foreach ($users as $user)
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
@@ -141,18 +143,17 @@
                             <img src="images/manga.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                            <h6 class="mb-0 text-sm">{{$user->username}}</h6>
+                            <p class="text-xs text-secondary mb-0">{{$user->email}}</p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                        <p class="text-xs text-secondary mb-0">{{$user->role_type}}</p>
                       </td>
                       
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$user->created_at->toDayDateTimeString()}}</span>
                       </td>
                       
                       <td class="align-middle">
@@ -165,7 +166,15 @@
                           Delete
                         </a>
                       </td>
-                    </tr>                    
+                    </tr>  
+                    @endforeach
+                    @else
+                  <tr>
+                    <td>
+                      <p>No Users yet😉</p>
+                    </td>
+                  </tr>
+                    @endunless                  
                   </tbody>
                 </table>
               </div>
