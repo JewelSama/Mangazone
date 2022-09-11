@@ -113,6 +113,14 @@
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
+    @if(session('status'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong>{{session('status')}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="material-icons opacity-10">close</i></button>
+    </div>
+        
+
+		@endif
       <div class="row">
         <div class="col-12">
           <div class="card my-4">
@@ -209,12 +217,13 @@
       <i class="material-icons py-2">create</i>
     </a>
     <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3">
+      <div class="card-header  mb-n6 pb-0 pt-0">
         <div class="float-start">
-          <h5 class="mt-3 mb-0">Mangazone</h5>
-          <p>Add Manga</p>
+          <h6 class="mt-2 mb-0">Add Manga | Mangazone</h6>
+          <br>
+          <br>
         </div>
-        <div class="float-end mt-4">
+        <div class="float-end mt-2">
           <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
             <i class="material-icons">clear</i>
           </button>
@@ -222,50 +231,57 @@
         <!-- End Toggle Button -->
       </div>
       <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
+      <div class="card-body mt-n3 pt-sm-3 pt-0">
        
-      <form>
-  <div class="form-group ">
-    <label for="">Manga Name</label>
-    <input type="text" class="form-control" style="border: 1px solid #ccc !important;">
-    <small  class="form-text text-danger"></small>
-  </div>
-  
-  <div class="form-group mt-2">
-    <label for=""><b>Select Manga Category</b></label>
-  <select class="form-select w-50"  style="border: 0.5px solid #ccc !important;">
-  <option selected>Action</option>
-  <option value="1">Slice of life</option>
-  <option value="2">Ecchi</option>
-  <option value="3">Supernatural</option>
-</select>
-</div>
+  <form action="{{route('add-manga')}}" method="POST" enctype="multipart/form-data">
+    @csrf
+      <div class="form-group ">
+        <label for="">Manga Name</label>
+        <input type="text" class="form-control" name="name" style="border: 1px solid #ccc !important;">
+        <small  class="form-text text-danger"></small>
+      </div>
 
-<div class="mt-2 form-group">
-  <label for="formFile" class="form-label">Select manga file</label>
-  <input type="file" name="" id="">
-</div>
+      <div class="form-group mt-2">
+        <label for=""><b>Select Manga Category</b></label>
+      <select class="form-select w-50" name="category"  style="border: 0.5px solid #ccc !important;">
+      <option selected>Action</option>
+      <option value="1">Slice of life</option>
+      <option value="2">Ecchi</option>
+      <option value="3">Supernatural</option>
+    </select>
+    </div>
 
-<div class="form-group mt-2">
-    <label for="">Mangaka</label>
-    <input type="text" class="form-control" style="border: 1px solid #ccc !important;">
-    <small  class="form-text text-danger"></small>
-  </div>
-  <div class="mt-2 form-group">
-  <label for="formFile" class="form-label">Select manga cover</label>
-  <input type="file" name="" id="">
-</div>
+    <div class="form-group ">
+        <label for="">Price</label>
+        <input type="number" class="form-control w-25 h-25" name="price" style="border: 1px solid #ccc !important;">
+        <small  class="form-text text-danger"></small>
+      </div>
+
+    <div class="mt-2 form-group">
+      <label for="formFile" class="form-label">Select manga file</label>
+      <input type="file" name="manga_file" id="">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="">Mangaka</label>
+        <input type="text" class="form-control" name="mangaka" style="border: 1px solid #ccc !important;">
+        <small  class="form-text text-danger"></small>
+      </div>
+      <div class="mt-2 form-group">
+      <label for="formFile" class="form-label">Select manga cover</label>
+      <input type="file" name="manga_cover" id="">
+    </div>
 
 
 
-<div class="form-group mt-2">
-    <label for="">Description</label>
-    <textarea class="form-control" id="floatingTextarea2" style="border: 1px solid #ccc !important;height: 100px"></textarea>
-    <small  class="form-text text-danger"></small>
-  </div>
-  
-  
-  <button type="submit" class="btn btn-primary mt-4 mb-3">Submit</button>
+    <div class="form-group mt-2">
+        <label for="">Description</label>
+        <input type="text" class="form-control" name="description" style="border: 1px solid #ccc !important;">
+        <small  class="form-text text-danger"></small>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary mt-2 mb-3 w-50 mx-auto">Submit</button>
 </form>
         
         
