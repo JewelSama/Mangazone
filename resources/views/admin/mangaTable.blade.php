@@ -144,28 +144,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @if ($mangas->count())
+                     @foreach ($mangas as $manga )
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="images/manga.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src="{{asset('storage/' . $manga->manga_cover)}}" class="avatar avatar-lg me-3 border-radius-lg" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Kimetsu no yaiba</h6>
+                            <h6 class="mb-0 text-sm">{{$manga->name}}</h6>
                             <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Action</p>
+                        <p class="text-xs font-weight-bold mb-0">{{$manga->category}}</p>
                       </td>
                       
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">Kishimoto</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$manga->mangaka}}</span>
                       </td>
                       
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$manga->created_at->toDayDateTimeString()}}</span>
                       </td>
                       
                       <td class="align-middle">
@@ -183,9 +185,16 @@
                           Delete
                         </a>
                       </td>
-                    </tr>                    
+                    </tr>
+                    @endforeach
+                    @else
+                    <td>
+                      No Manga
+                    </td>
+                    @endif                    
                   </tbody>
                 </table>
+                {{$mangas->links()}}
               </div>
             </div>
           </div>
