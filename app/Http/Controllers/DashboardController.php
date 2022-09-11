@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,7 +11,10 @@ class DashboardController extends Controller
         return view('admin.dashboard');
     }
     public function showUsers(){
-        return view('admin.usersTable');
+        $users = User::get();
+        return view('admin.usersTable', [
+            'users' => $users
+        ]);
     }
     public function showManga(){
         return view('admin.mangaTable');
