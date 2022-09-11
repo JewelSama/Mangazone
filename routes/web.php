@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MangaController;
 use App\Http\Controllers\RegisterController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/users-table', [DashboardController::class, 'showUsers'])->name('usersTable');
     Route::get('/manga', [DashboardController::class, 'showManga'])->name('manga');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
+    Route::post('/manga-create', [MangaController::class, 'store'])->name('add-manga');
 });
 
 
