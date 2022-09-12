@@ -51,6 +51,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/manga-table', [DashboardController::class, 'showManga'])->name('manga');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::post('/manga-create', [MangaController::class, 'store'])->name('add-manga');
+    Route::get('/manga-edit/{id}', [MangaController::class, 'editManga'])->name('edit-manga');
+    Route::put('/manga-edit/{manga}', [MangaController::class, 'updateManga'])->name('edit-manga');
+    Route::delete('/manga-delete/{manga}', [MangaController::class, 'destroy']);
 });
 
 

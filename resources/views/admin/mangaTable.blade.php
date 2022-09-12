@@ -114,7 +114,7 @@
     <!-- End Navbar -->
     <div class="container-fluid py-4">
     @if(session('status'))
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
+    <div class="alert alert-info alert-dismissible fade show text-center text-white w-50 mx-auto" role="alert">
       <strong>{{session('status')}}</strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="material-icons opacity-10">close</i></button>
     </div>
@@ -171,19 +171,21 @@
                       </td>
                       
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        <a href="/manga/{{$manga->id}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View manga">
                           View
                         </a>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
+                        <a href="{{route('edit-manga', $manga->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit manga">
+                          Edit manga
                         </a>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Delete
-                        </a>
+                        <form action="/manga-delete/{{$manga->id}}" method="post">
+                          @csrf
+                          @method('DELETE')
+                        <button class="text-danger font-weight-bold text-xs bg-transparent border-0" style="background: none !important;" type="submit">Delete</button>
+                        </form>
                       </td>
                     </tr>
                     @endforeach
@@ -254,9 +256,9 @@
         <label for=""><b>Select Manga Category</b></label>
       <select class="form-select w-50" name="category"  style="border: 0.5px solid #ccc !important;">
       <option selected>Action</option>
-      <option value="1">Slice of life</option>
-      <option value="2">Ecchi</option>
-      <option value="3">Supernatural</option>
+      <option value="Slice of life">Slice of life</option>
+      <option value="Ecchi">Ecchi</option>
+      <option value="Ecchi">Supernatural</option>
     </select>
     </div>
 
