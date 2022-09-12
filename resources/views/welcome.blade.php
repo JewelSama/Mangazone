@@ -112,106 +112,31 @@
 				</div>
 			</div>
 			<div class="row">
+				@if($mangas->count())
+				@foreach ($mangas as $manga )
+					
+				
 				<div class="col-md-4 text-center animate-box">
 					<div class="product">
-						<div class="product-grid" style="background-image:url(images/ds.jpg);">
+						<div class="product-grid" style="background-image: url(storage/{{$manga->manga_cover}})">
+						<!-- <img src="{{asset('dash-assets/img/bg-green.png')}}" alt=""> -->
 							<div class="inner">
 								<p>
 									<a href="/cart" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="/product" class="icon"><i class="icon-eye"></i></a>
+									<a href="/manga/{{$manga->id}}" class="icon"><i class="icon-eye"></i></a>
 								</p>
 							</div>
 						</div>
 						<div class="desc">
-							<h3><a href="single.html">Hauteville Concrete Rocking Chair</a></h3>
-							<span class="price">$350</span>
+							<h3><a href="single.html">{{$manga->name}}</a></h3>
+							<span class="price">₦{{$manga->price}}</span>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="product">
-						<div class="product-grid" style="background-image:url(images/dbs.jpg);">
-							<span class="sale">Sale</span>
-							<div class="inner">
-								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
-								</p>
-							</div>
-						</div>
-						<div class="desc">
-							<h3><a href="single.html">Pavilion Speaker</a></h3>
-							<span class="price">$600</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="product">
-						<div class="product-grid" style="background-image:url(images/bc.jpg);">
-							<div class="inner">
-								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
-								</p>
-							</div>
-						</div>
-						<div class="desc">
-							<h3><a href="single.html">Ligomancer</a></h3>
-							<span class="price">$780</span>
-						</div>
-					</div>
-				</div>
+				@endforeach
+				@endif
 			</div>
-			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="product">
-						<div class="product-grid" style="background-image:url(images/aot.jpg);">
-							<div class="inner">
-								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
-								</p>
-							</div>
-						</div>
-						<div class="desc">
-							<h3><a href="single.html">Alato Cabinet</a></h3>
-							<span class="price">$800</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="product">
-						<div class="product-grid" style="background-image:url(images/ds.jpg);">
-							<div class="inner">
-								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
-								</p>
-							</div>
-						</div>
-						<div class="desc">
-							<h3><a href="single.html">Earing Wireless</a></h3>
-							<span class="price">$100</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="product">
-						<div class="product-grid" style="background-image:url(images/bleach.jpg);">
-							<div class="inner">
-								<p>
-									<a href="single.html" class="icon"><i class="icon-shopping-cart"></i></a>
-									<a href="single.html" class="icon"><i class="icon-eye"></i></a>
-								</p>
-							</div>
-						</div>
-						<div class="desc">
-							<h3><a href="single.html">Sculptural Coffee Table</a></h3>
-							<span class="price">$960</span>
-						</div>
-					</div>
-				</div>
-			</div>
+			  
 		</div>
 	</div>
 	
