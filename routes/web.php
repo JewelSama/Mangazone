@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MangaController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Manga;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $mangas = Manga::take(6)->get();
+    return view('welcome', [
+        "mangas" => $mangas
+    ]);
+    
 })->name('home');
 
-Route::get('/product', function(){
-    return view('single');
+Route::get('/manga/{manga}', function(Manga $manga){
+    return view('single', [
+        'manga' => $manga
+    ]);
 });
 
 Route::get('/about', function () {
@@ -41,7 +48,7 @@ Route::get('/contact', function () {
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'show'])->name('dashboard');
     Route::get('/users-table', [DashboardController::class, 'showUsers'])->name('usersTable');
-    Route::get('/manga', [DashboardController::class, 'showManga'])->name('manga');
+    Route::get('/manga-table', [DashboardController::class, 'showManga'])->name('manga');
     Route::get('/payments', [DashboardController::class, 'payments'])->name('payments');
     Route::post('/manga-create', [MangaController::class, 'store'])->name('add-manga');
 });
