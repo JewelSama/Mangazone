@@ -65,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white {{request()->is('manga') ? 'active bg-gradient-danger' : ''}}" href="{{route('manga')}}">
+          <a class="nav-link text-white {{request()->is('manga-table') ? 'active bg-gradient-danger' : ''}}" href="{{route('manga')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">auto_stories</i>
             </div>
