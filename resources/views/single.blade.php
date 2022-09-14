@@ -69,6 +69,11 @@
 	<div class="fh5co-loader"></div>
 	
 	<div id="page">
+	@if(session('status'))
+		<div class="session-alt fixed-top  mx-auto text-center text-white" style="margin: auto;padding: 3px">
+            {{session('status')}}
+        </div>
+		@endif
 	
 
 	
@@ -120,7 +125,7 @@
 						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 							<h2>{{$manga->name}}</h2>
 							<p>
-								<a href="#" class="btn btn-primary btn-outline btn-lg">Add to Cart</a>
+								<a href="/add-to-cart/{{$manga->id}}" class="btn btn-primary btn-outline btn-lg">Add to Cart</a>
 								<a href="#" class="btn btn-primary btn-outline btn-lg">Compare</a>
 							</p>
 						</div>
