@@ -122,7 +122,7 @@
 						<!-- <img src="{{asset('dash-assets/img/bg-green.png')}}" alt=""> -->
 							<div class="inner">
 								<p>
-									<a href="/cart" class="icon"><i class="icon-shopping-cart"></i></a>
+									<a href="/add-to-cart/{{$manga->id}}" class="icon"><i class="icon-shopping-cart"></i></a>
 									<a href="/manga/{{$manga->id}}" class="icon"><i class="icon-eye"></i></a>
 								</p>
 							</div>
