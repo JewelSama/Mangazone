@@ -66,3 +66,4 @@ Route::post('/login',[LoginController::class, 'create'])->middleware('guest');
 Route::post('/logout', [LogoutController::class, 'create'])->name('logout');
 
 Route::get('/cart',[CartController::class, 'show'])->name('cart');
+Route::get('/add-to-cart/{id}',[CartController::class, 'addCart'])->name('add-to-cart');
