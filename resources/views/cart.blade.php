@@ -33,11 +33,13 @@
                         <td class="col-sm-1 col-md-1 text-center"><strong>₦{{number_format($item->price)}}</strong></td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>₦{{number_format($item->price)}}</strong></td>
                         <td class="col-sm-1 col-md-1">
-                        <button type="button" class="btn btn-danger">
+                        <a href="/remove-from-cart/{{$item->id}}" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Remove
-                        </button></td>
+                        </a></td>
                     </tr>
                     @endforeach 
+                    @else
+                    <td>Cart is  Empty</td>
                     @endif
                     <tr>
                         <td>   </td>
@@ -65,13 +67,17 @@
                         <td>   </td>
                         <td>   </td>
                         <td>
-                        <button type="button" class="btn btn-default">
+                        <button type="button"  class="btn btn-default">
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </button></td>
                         <td>
-                        <button type="button" class="btn btn-success">
+                            <form action="/pay" method="post">
+                                @csrf
+                        <button type="submit"  @unless (count($manga))
+                            disabled
+                        @endunless class="btn btn-default">
                             Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        </button></form></td>
                     </tr>
                 </tbody>
             </table>

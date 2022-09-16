@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Manga;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Http;
 
 class CartController extends Controller
 {
@@ -33,6 +36,25 @@ class CartController extends Controller
         
 
     }
+    public function removeCart($id){
+        $cart = Session::get('cart');
+        // $n_cart = array_filter($cart,  function($x) use(&$id){
+        $n_cart = array_filter($cart,   function($x) use($id){
+            return $x !== $id;
+        });
+        // $n_cart = Arr::where($cart, function($x) use($id){
+        //     return $cart['id'] == $id;
+
+        // });
+        // $n_cart = collect($cart)->where($cart !== $id)->all();
+        // $n_cart = array_filter($cart, function ($item) {
+        //     return $item !== $id;
+        // });
+        
+        // print_r($id);
+        Session::put('cart', $n_cart);
+        return back()->with('status', 'Manga removed from cart');
+    }
 
     public function show(){
         $cart = Session::get('cart');
@@ -43,8 +65,36 @@ class CartController extends Controller
             $manga[] = $x;
             $total +=$x->price;
         }
+        Session::put('total', $total);
+        
+            
+            // $cart[] = $id;
+            // $new_cart = $cart;
+            // return $new_cart;
+            
+            // Session::put('cart', $new_cart);
         // return $manga;
         return view('cart', compact('manga', 'total'));
+    }
+    
+    public function pay(Request $req){
+        $total = Session::get('total');
+        
+        
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer '.getenv('Paystack_SECRET'),
+            'Content-Type' => 'application/json'
+        ])->post('https://api.paystack.co/transaction/initialize', [
+            "email" => auth()->user()->email,
+            'amount' => intval($total) * 100,
+            'callback_url' => getenv('APP_URL').'/verify' 
+        ]);
+
+        Session::put('trx_ref', $response['data']['reference']);
+        return redirect($response['data']['authorization_url']);
+    }
+    public function verif(){
+        return 'Paid Samaaaaaaa';
     }
     
 }

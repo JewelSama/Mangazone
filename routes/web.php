@@ -67,3 +67,6 @@ Route::post('/logout', [LogoutController::class, 'create'])->name('logout');
 
 Route::get('/cart',[CartController::class, 'show'])->name('cart');
 Route::get('/add-to-cart/{id}',[CartController::class, 'addCart'])->name('add-to-cart');
+Route::get('/remove-from-cart/{id}',[CartController::class, 'removeCart'])->name('remove-to-cart');
+Route::post('/pay', [CartController::class, 'pay']);
+Route::get('/verify', [CartController::class, 'verif']);
