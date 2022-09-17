@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MangaController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Manga;
 use GuzzleHttp\Middleware;
@@ -54,6 +55,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/manga-edit/{id}', [MangaController::class, 'editManga'])->name('edit-manga');
     Route::put('/manga-edit/{manga}', [MangaController::class, 'updateManga'])->name('edit-manga');
     Route::delete('/manga-delete/{manga}', [MangaController::class, 'destroy']);
+    Route::get('/orders', [MangaController::class, 'orders'])->name('orders');
 });
 
 
