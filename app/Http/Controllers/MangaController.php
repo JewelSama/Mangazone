@@ -65,6 +65,11 @@ class MangaController extends Controller
         return redirect()->route('manga')->with('status', 'Manga Deleted!!');
     }
 
+    public function orders(){
+        return view('admin.order');    
+    }
+    
+
     
 
     // public function updateManga(Request $request,  $id){
