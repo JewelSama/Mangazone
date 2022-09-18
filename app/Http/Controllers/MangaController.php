@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manga;
+use App\Models\Order;
 // use Facade\FlareClient\Stacktrace\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -66,7 +67,10 @@ class MangaController extends Controller
     }
 
     public function orders(){
-        return view('admin.order');    
+        $orders = Order::latest()->paginate(5);
+        return view('admin.order', [
+            'orders' => $orders
+        ]);    
     }
     
 

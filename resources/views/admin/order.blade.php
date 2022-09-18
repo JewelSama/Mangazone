@@ -126,7 +126,7 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-danger shadow-danger border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">Mangazone Manga</h6>
+                <h6 class="text-white text-capitalize ps-3">Mangazone Orders</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -134,31 +134,25 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manga Name</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Category</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mangaka</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created at</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Reference</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Manga</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ordered at</th>
                       <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    
+                    @if($orders->count())
+                    @foreach ($orders as $order )
+                      
                     <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="" class="avatar avatar-lg me-3 border-radius-lg" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"></h6>
-                            <!-- <p class="text-xs text-secondary mb-0">john@creative-tim.com</p> -->
-                          </div>
-                        </div>
+                    <td class="align-middle text-center">
+                        <span class="text-secondary text-xs font-weight-bold">{{$order->reference}}</span>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"></p>
+                        <p class="text-xs font-weight-bold mb-0 text-info">{{$order->status}}</p>
                       </td>
                       
                       <td class="align-middle text-center">
@@ -166,7 +160,7 @@
                       </td>
                       
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold"></span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$order->created_at->toDayDateTimeString()}}</span>
                       </td>
                       
                       <td class="align-middle">
@@ -177,8 +171,8 @@
                       
                       
                     </tr>
-                    
-                    
+                    @endforeach
+                    @endif
                     <!-- <td> -->
                       <!-- No Manga -->
                     <!-- </td> -->
@@ -212,85 +206,7 @@
     </div>
   </main>
 
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">create</i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header  mb-n6 pb-0 pt-0">
-        <div class="float-start">
-          <h6 class="mt-2 mb-0">Add Manga | Mangazone</h6>
-          <br>
-          <br>
-        </div>
-        <div class="float-end mt-2">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="material-icons">clear</i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body mt-n3 pt-sm-3 pt-0">
-       
-  <form action="/" method="POST" enctype="multipart/form-data">
-    @csrf
-      <div class="form-group ">
-        <label for="">Manga Name</label>
-        <input type="text" class="form-control" name="name" style="border: 1px solid #ccc !important;">
-        <small  class="form-text text-danger"></small>
-      </div>
-
-      <div class="form-group mt-2">
-        <label for=""><b>Select Manga Category</b></label>
-      <select class="form-select w-50" name="category"  style="border: 0.5px solid #ccc !important;">
-      <option selected>Action</option>
-      <option value="Slice of life">Slice of life</option>
-      <option value="Ecchi">Ecchi</option>
-      <option value="Ecchi">Supernatural</option>
-    </select>
-    </div>
-
-    <div class="form-group ">
-        <label for="">Price</label>
-        <input type="number" class="form-control w-25 h-25" name="price" style="border: 1px solid #ccc !important;">
-        <small  class="form-text text-danger"></small>
-      </div>
-
-    <div class="mt-2 form-group">
-      <label for="formFile" class="form-label">Select manga file</label>
-      <input type="file" name="manga_file" id="">
-    </div>
-
-    <div class="form-group mt-2">
-        <label for="">Mangaka</label>
-        <input type="text" class="form-control" name="mangaka" style="border: 1px solid #ccc !important;">
-        <small  class="form-text text-danger"></small>
-      </div>
-      <div class="mt-2 form-group">
-      <label for="formFile" class="form-label">Select manga cover</label>
-      <input type="file" name="manga_cover" id="">
-    </div>
-
-
-
-    <div class="form-group mt-2">
-        <label for="">Description</label>
-        <input type="text" class="form-control" name="description" style="border: 1px solid #ccc !important;">
-        <small  class="form-text text-danger"></small>
-      </div>
-
-
-      <button type="submit" class="btn btn-primary mt-2 mb-3 w-50 mx-auto">Submit</button>
-</form>
-        
-        
-        
-        
-        
-      </div>
-    </div>
-  </div>
+  
   
   <!--   Core JS Files   -->
   <script src="../assets/js/core/popper.min.js"></script>
