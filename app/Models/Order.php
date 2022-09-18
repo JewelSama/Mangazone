@@ -10,11 +10,10 @@ class Order extends Model
     use HasFactory;
     protected $fillable=[
         'reference',
-        'trx_ref',
-        
+        'user_id',
     ];
 
-public function users(){
+public function user(){
     $this->belongsTo(User::class);
 }
 }
