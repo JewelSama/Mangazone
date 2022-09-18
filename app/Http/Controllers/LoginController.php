@@ -24,8 +24,11 @@ class LoginController extends Controller
         
         $detail['username'] = auth()->user()->username;
         $detail['email'] = auth()->user()->email;
-
-        Mail::to(auth()->user())->send(new VerifyMail($detail));
+        try{
+            Mail::to(auth()->user())->send(new VerifyMail($detail));
+        } catch (\throwable $th){
+            return redirect('/');
+        }
 
 
         if (Auth::user()->role_type == 'administrator')
