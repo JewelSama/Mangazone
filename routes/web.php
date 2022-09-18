@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Manga;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $mangas = Manga::take(6)->get();
+    $cart = Session::get('cart');
     return view('welcome', [
-        "mangas" => $mangas
+        "mangas" => $mangas,
+        'cart' => $cart
     ]);
     
 })->name('home');
@@ -37,10 +40,16 @@ Route::get('/manga/{manga}', function(Manga $manga){
 });
 
 Route::get('/about', function () {
-    return view('about');
+    $cart = Session::get('cart');
+    return view('about', [
+        'cart' => $cart
+    ]);
 });
 Route::get('/contact', function () {
-    return view('contact');
+    $cart = Session::get('cart');
+    return view('contact', [
+        'cart' => $cart
+    ]);
 });
 // Route::group(['middleware' => 'isAdmin'], function () {
 //     

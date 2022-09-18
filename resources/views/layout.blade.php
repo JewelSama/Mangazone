@@ -124,7 +124,13 @@
 						      </span>
 						    </div>
 						</li>
-						<li class="shopping-cart"><a href="{{route('cart')}}" class="cart"><span><small>0</small><i class="icon-shopping-cart"></i></span></a></li>
+						<li class="shopping-cart"><a href="{{route('cart')}}" class="cart"><span><small>
+							@if($cart)
+								{{count($cart)}}
+							 @else
+								0
+							@endif
+							</small><i class="icon-shopping-cart"></i></span></a></li>
 					</ul>
 				</div>
 			</div>
