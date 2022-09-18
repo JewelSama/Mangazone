@@ -16,10 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->timestamps(); 
             $table->string('reference'); 
-            $table->string('trx_ref'); 
-            $table->string('status')->default('pending');
+            $table->string('status')->default('paid');
+            $table->timestamps(); 
         });
     }
 
