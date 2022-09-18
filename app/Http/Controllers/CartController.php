@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manga;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
@@ -94,7 +95,12 @@ class CartController extends Controller
         return redirect($response['data']['authorization_url']);
     }
     public function verif(){
-        return 'Paid Samaaaaaaa';
+        $ref = Session::get('trx_ref');
+        Order::create([
+            'reference' => $ref,
+            'trx_ref' => $ref,
+        ]);
+        return back()->with('status', 'Payment Confirmed! Arigatou💖');
     }
     
 }
