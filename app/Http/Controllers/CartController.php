@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderMail;
 use App\Models\Manga;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -26,6 +28,7 @@ class CartController extends Controller
             // return $new_cart;
             
             Session::put('cart', $new_cart);
+            // dd(count($cart));
 
             return redirect('/cart')->with('status', 'Sugoi!! Manga Added to cart');
         } else {
@@ -61,10 +64,14 @@ class CartController extends Controller
         $cart = Session::get('cart');
         $total = 0;
         $manga = [];
-        foreach($cart as $item){
-            $x = Manga::find($item);
-            $manga[] = $x;
-            $total +=$x->price;
+        if($cart){
+            foreach($cart as $item){
+                $x = Manga::find($item);
+                $manga[] = $x;
+                $total +=$x->price;
+            }
+        } else {
+            $total = 0;
         }
         Session::put('total', $total);
         
@@ -75,7 +82,7 @@ class CartController extends Controller
             
             // Session::put('cart', $new_cart);
         // return $manga;
-        return view('cart', compact('manga', 'total'));
+        return view('cart', compact('manga', 'total', 'cart'));
     }
     
     public function pay(Request $req){
@@ -91,16 +98,28 @@ class CartController extends Controller
             'callback_url' => getenv('APP_URL').'/verify' 
         ]);
 
-        Session::put('trx_ref', $response['data']['reference']);
+        $reg = Session::put('trx_ref', $response['data']['reference']);
         return redirect($response['data']['authorization_url']);
+        // return $reg;
     }
-    public function verif(){
+    public function verif(Request $req){
         $ref = Session::get('trx_ref');
+        // return $ref;
         Order::create([
+            'user_id' =>auth()->id(),
             'reference' => $ref,
-            'trx_ref' => $ref,
         ]);
-        return back()->with('status', 'Payment Confirmed! Arigatou💖');
+        
+
+        $detail['username'] = auth()->user()->username;
+        $detail['email'] = auth()->user()->email;
+        $detail['ref'] = $ref;
+        Mail::to(auth()->user())->send(new OrderMail($detail));
+
+        Session::forget('cart');
+        Session::forget('total');
+        Session::forget('trx_ref');
+        return redirect('/cart')->with('status', 'Payment Confirmed! Arigatou💖');
     }
     
 }
