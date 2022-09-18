@@ -7,7 +7,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Product @php echo count($manga); @endphp </th>
+                        <th>Product ({{count($manga)}})</th>
                         <!-- <th>Quantity</th> -->
                         <th class="text-center">Price</th>
                         <th class="text-center">Total</th>
